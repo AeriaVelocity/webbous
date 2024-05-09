@@ -45,8 +45,9 @@ function helpCommand() {
             <h4>Command List</h4>
             <ul>
                 <li><code>clear</code> - Clear the output area</li>
-                <li><code>help</code> - Display this help message</li>
                 <li><code>exit</code> - Exit the Web</li>
+                <li><code>help</code> - Display this help message</li>
+                <li><code>www</code> - Display an <code>iframe</code> with the Google search engine</li>
             </ul>
         </div>
     );
