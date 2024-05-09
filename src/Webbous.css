@@ -14,7 +14,7 @@ li {
 }
 
 .output {
-    height: calc(100vh - 420px);
+    height: calc(100vh - 280px);
     overflow: auto;
 }
 
@@ -33,11 +33,12 @@ input {
     font-size: inherit;
 }
 
-.WebbousApp {
+.webbous-interface {
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+    flex-grow: 1;
 }
 
 .output-message {
@@ -49,12 +50,10 @@ input {
 }
 
 .command-prompt {
-    position: fixed;
-    width: calc(100% - 30px);
-    box-sizing: border-box;
-    bottom: 2%;
+    width: calc(100% - 46px);
     padding: 20px;
     padding-top: 0;
+    margin: 10px 0;
     border-radius: 12px;
     background-color: #e7e7e7;
     border: 3px solid #dbdbdb;

@@ -69,7 +69,7 @@ export default function PowerOnSelfTest() {
     const webbousVersion = packageJson.version;
     return (
         <div>
-            <p>This is Webbous, version {webbousVersion}.</p>
+            <p>This is Webbous, version {webbousVersion} (according to <code>package.json</code>).</p>
             <PrintBrowserAndOSInfo />
         </div>
     );

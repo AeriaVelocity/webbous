@@ -1,9 +1,12 @@
 /* Command Processor... for Webbous */
 
-import React from "react";
+import { useState } from "react";
+import PowerOnSelfTest from "./PowerOnSelfTest.jsx";
+
+let commandPrompt = '>';
 
 export function CommandPrompt({onCommandSubmit}) {
-    const [command, setCommand] = React.useState("");
+    const [command, setCommand] = useState("");
 
     function handleChange(event) {
         setCommand(event.target.value);
@@ -17,7 +20,7 @@ export function CommandPrompt({onCommandSubmit}) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <span>$</span>{" "}
+            <span>{commandPrompt}</span>
             <input type="text" value={command} onChange={handleChange} autoFocus />
         </form>
     );
@@ -26,10 +29,6 @@ export function CommandPrompt({onCommandSubmit}) {
 export function OutputArea({outputMessages}) {
     return (
         <div className="output-area">
-            <div className="output-message">
-                <p>Welcome to Webbous!</p>
-                <p>The Command Prompt is available at the bottom of the screen.</p>
-            </div>
             {outputMessages.map((message, index) => (
                 <div className="output-message">
                     <p key={index}>{message}</p>
@@ -60,6 +59,16 @@ export function handleCommandSubmit(command, outputMessages) {
     }
     else if (commandToMatch === "clear") {
         return [];
+    }
+    else if (commandToMatch === "welcome") {
+        const welcomeMessage = (
+            <div>
+                <p>Welcome to Webbous!</p>
+                <PowerOnSelfTest />
+                <p>The Command Prompt is available at the bottom of the screen, type <code>help</code> for a list of commands.</p>
+            </div>
+        );
+        return [welcomeMessage];
     }
     else if (commandToMatch === "help") {
         const helpText = helpCommand();
