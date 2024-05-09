@@ -5,24 +5,19 @@ body {
     font-family: "JetBrains Mono", "Source Code Pro", "Fira Code", "Fira Mono", "Droid Sans Mono", monospace;
     color: white;
     background-color: black;
-    line-height: 1;
     height: 100%;
 }
 
 li {
+    list-style-type: '> ';
     line-height: 2;
-}
-
-.output {
-    height: calc(100vh - 280px);
-    overflow: auto;
 }
 
 code {
     font-family: inherit;
     padding: 1px 3px;
-    background-color: #282c34;
-    border: 2px solid #393e46;
+    background-color: #2b2b2b;
+    border: 2px solid #444444;
     border-radius: 6px;
 }
 
@@ -35,32 +30,40 @@ input {
 
 .webbous-interface {
     display: flex;
+    height: calc(100vh - 30px);
     flex-direction: column;
-    height: 100%;
-    overflow: hidden;
+}
+
+.interface-element {
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+
+.output {
     flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .output-message {
-    border-radius: 9px;
+    border-radius: 4px;
     padding: 5px 10px;
-    margin-bottom: 10px;
-    background-color: #4b4b4b;
-    border: 2px solid #000000;
+    margin-bottom: 4px;
+    background-color: #1f1f1f;
+    border: 2px solid #5c5c5c;
 }
 
 .command-prompt {
-    width: calc(100% - 46px);
-    padding: 20px;
-    padding-top: 0;
-    margin: 10px 0;
-    border-radius: 12px;
-    background-color: #e7e7e7;
-    border: 3px solid #dbdbdb;
+    border-radius: 4px;
+    background-color: #1f1f1f;
+    border: 2px solid #5c5c5c;
+    padding-bottom: 20px;
     input {
         color: inherit;
         background-color: inherit;
         width: calc(100% - 40px);
+        border: 1px solid #5c5c5c;
     }
 }
 
@@ -75,8 +78,13 @@ input {
         border: 2px solid #dbdbdb;
     }
 
+    .command-prompt {
+        background-color: #e7e7e7;
+        border: 3px solid #adadad;
+    }
+
     .output-message {
-        background-color: #ffffff;
+        background-color: #e7e7e7;
         border: 2px solid #adadad;
     }
 }

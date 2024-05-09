@@ -38,7 +38,6 @@ function GetWindowsVersion() {
     }
 }
 
-
 function GetMacOSVersion() {
     return window.navigator.platform.includes('Mac') ? window.navigator.platform : '';
 }

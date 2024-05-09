@@ -3,8 +3,6 @@
 import { useState } from "react";
 import PowerOnSelfTest from "./PowerOnSelfTest.jsx";
 
-let commandPrompt = '>';
-
 export function CommandPrompt({onCommandSubmit}) {
     const [command, setCommand] = useState("");
 
@@ -20,7 +18,6 @@ export function CommandPrompt({onCommandSubmit}) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <span>{commandPrompt}</span>
             <input type="text" value={command} onChange={handleChange} autoFocus />
         </form>
     );
@@ -63,7 +60,7 @@ export function handleCommandSubmit(command, outputMessages) {
     else if (commandToMatch === "welcome") {
         const welcomeMessage = (
             <div>
-                <p>Welcome to Webbous!</p>
+                <h3>Welcome to Webbous!</h3>
                 <PowerOnSelfTest />
                 <p>The Command Prompt is available at the bottom of the screen, type <code>help</code> for a list of commands.</p>
             </div>

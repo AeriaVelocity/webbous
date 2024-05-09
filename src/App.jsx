@@ -2,7 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { CommandPrompt, OutputArea, handleCommandSubmit } from "./CommandProcessor.jsx";
-import "./Webbous.css";
+
+import defaultStyle from "./Webbous.css";
+
+function SetStyling() {
+    const styling = defaultStyle;
+    return (
+        <style>{styling}</style>
+    );
+}
 
 var commandHistory = [];
 
@@ -23,12 +31,14 @@ function WebbousBase() {
 
     return (
         <div className="webbous-interface">
-            <h3 className="output-title">Output Area</h3>
-            <div className="output">
+            <div className="interface-element">
+                <h2>Webbous</h2>
+            </div>
+            <div className="interface-element output">
                 <OutputArea outputMessages={outputMessages} />
             </div>
 
-            <div className="command-prompt">
+            <div className="interface-element command-prompt">
                 <h3 className="command-prompt-title">Command Prompt</h3>
                 <CommandPrompt onCommandSubmit={handleSubmit} />
             </div>
@@ -39,7 +49,6 @@ function WebbousBase() {
 export default function WebbousApp() {
     return (
         <div className="WebbousApp">
-            <h2>Webbous</h2>
             <WebbousBase />
         </div>
     );
