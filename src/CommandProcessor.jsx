@@ -38,13 +38,27 @@ export function OutputArea({outputMessages}) {
 function helpCommand() {
     return (
         <div>
-            <h4>Command List</h4>
+            <h3>Command List</h3>
             <ul>
-                <li><code>clear</code> - Clear the output area</li>
-                <li><code>exit</code> - Exit the Web</li>
-                <li><code>help</code> - Display this help message</li>
-                <li><code>www</code> - Display an <code>iframe</code> with the Google search engine</li>
+                <li><code>clear</code> - Clears the screen</li>
+                <li><code>exit</code> - Attempt to escape</li>
+                <li><code>help</code> - Displays this help message</li>
+                <li><code>google</code> - Open Google in an <code>iframe</code></li>
             </ul>
+        </div>
+    );
+}
+
+function WebFrame(specifiedUrl, title) {
+    return (
+        <div>
+            <iframe
+                src={specifiedUrl}
+                title={title}
+                width="100%"
+                height="500px"
+            />
+            <p>Please be aware that not everything can be displayed in an <code>iframe</code>.</p>
         </div>
     );
 }
@@ -74,17 +88,11 @@ export function handleCommandSubmit(command, outputMessages) {
     else if (commandToMatch === "exit") {
         return [...outputMessages, "You can't exit from the Web!"];
     }
-    else if (commandToMatch === "www") {
+    else if (commandToMatch === "google") {
         const page = (
             <div>
-                <h3>Web iframe</h3>
-                <iframe
-                    src="https://google.com/search?igu=1"
-                    title="Search"
-                    width="100%"
-                    height="400px"
-                />
-                <p>Please be aware that not everything can be displayed in an <code>iframe</code>.</p>
+                <h3>Google</h3>
+                { WebFrame("https://www.google.com/search?igu=1", "Google") }
             </div>
         );
         return [...outputMessages, page];
